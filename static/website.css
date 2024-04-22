@@ -1,0 +1,441 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html { scroll-behavior: smooth; 
+  overflow: scroll;
+  overflow-y: auto;
+overflow: auto;}
+
+img {
+    object-fit: fill;
+    width: 100%;
+}
+
+.image {
+    width: 100%;
+}
+
+h1 {
+    font-size: 120px;
+}
+
+.image {
+  overflow: hidden;
+}
+
+body {
+    background-color: rgb(71, 71, 71);
+}
+
+.mid_col {
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 100px;
+}
+
+.topnav {
+    background-color: hsla(0, 0%, 20%, 0.671);
+    top: 0;
+    width: 100%;
+    height: 75px;
+  }
+
+  .moving_nav {
+    position: relative;
+    height: 75px;
+    margin-bottom: 100px;
+    top: 100px;
+    offset: 100px;
+  }
+
+  #d {
+    position: relative;
+    top: 100px;
+    width: 100%;
+    height: 75px;
+    background-color: hsla(0, 0%, 20%, 0.671);
+  }
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 30px;
+    margin-right: 100px;
+  }
+  
+  .topnav a:hover {
+    background-color: hsl(0, 0%, 20%, 0.671);
+    color: rgb(255, 255, 255);
+  }
+
+  .title {
+    text-align: center;
+    color:rgb(255, 255, 255);
+    margin-top: 70px;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+    padding-left: 70px;
+    position: absolute;
+  }
+
+  .title p {
+    font-size: 30px;
+  }
+
+.info {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  padding-top: 50px;
+}
+
+.pres_images {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.left_col {
+  background-image: url("../Images/background_hurricane.jpg");
+  border-top-right-radius:  25px;
+}
+
+.right_col {
+  background-image: url("../Images/background_hurricane.jpg");
+  border-top-left-radius: 25px;
+}
+
+.pres_images img {
+  border-radius: 25px;
+  margin-bottom: 0px;
+}
+
+.gradiant {
+  background-color: #00000000;
+  width: 100%;
+}
+
+.pres_images img{
+  width: 67%;
+  padding-top:50px;
+  padding-bottom:300px;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+  .biden {
+    background-color: #ffffff;
+    border-radius: 50px;
+    margin-top: 100px;
+    padding: 50px;
+    padding-bottom: 100px;
+  }
+
+  .biden h2 {
+    font-size: 60px;
+    text-align: center;
+  }
+
+  .biden_figures {
+    display: grid;
+    align-items: center; 
+    grid-template-columns: 1fr 1fr;
+    /* column-gap: 5px; */
+    background-color: #ffffff;
+  }
+
+  .biden_approval {
+    max-width: 100%;
+    max-height:100%;
+  }
+
+  .biden_data p {
+    font-size: 30px;
+  }
+
+  .biden_data h3 {
+    font-size: 60px;
+  }
+
+  .biden_costs_text {
+    font-size: 24px;
+    color: #000000;
+  }
+  .trump {
+    background-color: #ffffff;
+    border-radius: 50px;
+    margin-top: 100px;
+    padding: 50px;
+    padding-bottom: 100px;
+  }
+
+  .trump h2 {
+    font-size: 60px;
+    text-align: center;
+  }
+
+  .trump_figures {
+    display: grid;
+    align-items: center; 
+    grid-template-columns: 1fr 1fr;
+    background-color: #ffffff;
+  }
+
+  .trump_approval {
+    max-width: 100%;
+    max-height:100%;
+  }
+
+  .trump_data p {
+    font-size: 30px;
+  }
+
+  .trump_data h3 {
+    font-size: 60px;
+  }
+
+  .trump_costs_text {
+    font-size: 24px;
+    color: #000000;
+  }
+
+  .obama {
+    background-color: #ffffff;
+    border-radius: 50px;
+    margin-top: 100px;
+    padding: 50px;
+    padding-bottom: 100px;
+  }
+
+  .obama h2 {
+    font-size: 60px;
+    text-align: center;
+  }
+
+  .obama_figures {
+    display: grid;
+    align-items: center; 
+    grid-template-columns: 1fr 1fr;
+    background-color: #ffffff;
+  }
+
+  .obama_approval {
+    max-width: 100%;
+    max-height:100%;
+  }
+
+  .obama_data p {
+    font-size: 30px;
+  }
+
+  .obama_data h3 {
+    font-size: 60px;
+  }
+
+  .obama_costs_text {
+    font-size: 24px;
+    color: #000000;
+  }
+
+  .w_bush {
+    background-color: #ffffff;
+    border-radius: 50px;
+    margin-top: 100px;
+    padding: 50px;
+    padding-bottom: 100px;
+  }
+
+  .w_bush h2 {
+    font-size: 60px;
+    text-align: center;
+  }
+
+  .w_bush_figures {
+    display: grid;
+    align-items: center; 
+    grid-template-columns: 1fr 1fr;
+    background-color: #ffffff;
+  }
+
+  .w_bush_approval {
+    max-width: 100%;
+    max-height:100%;
+  }
+
+  .w_bush_data p {
+    font-size: 30px;
+  }
+
+  .w_bush_data h3 {
+    font-size: 60px;
+  }
+
+  .w_bush_costs_text {
+    font-size: 24px;
+    color: #000000;
+  }
+
+  .clinton {
+    background-color: #ffffff;
+    border-radius: 50px;
+    margin-top: 100px;
+    padding: 50px;
+    padding-bottom: 100px;
+  }
+
+  .clinton h2 {
+    font-size: 60px;
+    text-align: center;
+  }
+
+  .clinton_figures {
+    display: grid;
+    align-items: center; 
+    grid-template-columns: 1fr 1fr;
+    background-color: #ffffff;
+  }
+
+  .clinton_approval {
+    max-width: 100%;
+    max-height:100%;
+  }
+
+  .clinton_data p {
+    font-size: 30px;
+  }
+
+  .clinton_data h3 {
+    font-size: 60px;
+  }
+
+  .clinton_costs_text {
+    font-size: 24px;
+    color: #000000;
+  }
+
+  .bush {
+    background-color: #ffffff;
+    border-radius: 50px;
+    margin-top: 100px;
+    padding: 50px;
+    padding-bottom: 100px;
+  }
+
+  .bush h2 {
+    font-size: 60px;
+    text-align: center;
+  }
+
+  .bush_figures {
+    display: grid;
+    align-items: center; 
+    grid-template-columns: 1fr 1fr;
+    background-color: #ffffff;
+  }
+
+  .bush_approval {
+    max-width: 100%;
+    max-height:100%;
+  }
+
+  .bush_data p {
+    font-size: 30px;
+  }
+
+  .bush_data h3 {
+    font-size: 60px;
+  }
+
+  .bush_costs_text {
+    font-size: 24px;
+    color: #000000;
+  }
+
+  .space {
+    padding-bottom: 100px;
+  }
+
+  .overview {
+    font-size: 40px;
+    padding: 20px;
+    color: #ffffff;
+    border-top: #00000000;
+    border-bottom: #00000000;
+    border-style: solid;
+    border-radius: 30px;
+    background-color: #0000002d;
+  }
+
+  .overview_text {
+    font-size: 30px;
+  }
+  
+  .data_collection {
+    font-size: 40px;
+    padding: 20px;
+    color: #ffffff;
+    border-top: #00000000;
+    border-bottom: #00000000;
+    border-style: solid;
+    border-radius: 30px;
+    background-color: #0000002d;
+  }
+
+  .data_collection_text {
+    font-size: 30px;
+  }
+  
+  .statistical_analysis {
+    font-size: 40px;
+    padding: 20px;
+    color: #ffffff;
+    border-top: #00000000;
+    border-bottom: #00000000;
+    border-style: solid;
+    border-radius: 30px;
+    background-color: #0000002d;
+  }
+
+  .statistical_analysis_text {
+    font-size: 30px;
+  }
+
+  .possible_issues {
+    font-size: 40px;
+    padding: 20px;
+    color: #ffffff;
+    border-top: #00000000;
+    border-bottom: #00000000;
+    border-style: solid;
+    border-radius: 30px;
+    background-color: #0000002d;
+  }
+  .possible_issues_text {
+    font-size: 30px;
+  }
+
+  .data_collection_text {
+    font-size: 30px;
+  }
+
+  .final_conclusions {
+    font-size: 40px;
+    padding: 20px;
+    color: #ffffff;
+    border-top: #00000000;
+    border-bottom: #00000000;
+    border-style: solid;
+    border-radius: 30px;
+    background-color: #0000002d;
+    margin-top: 100px;
+  }
+
+  .final_conclusions_text {
+    font-size: 30px;
+  }
