@@ -30,18 +30,15 @@ def main():
     # Loops however many weblinks there are
     # Calls the write_data method, sending in the FileScraper object and the
     #   index to append to the end of the file name
-    ###########################################################################################################
     for i, link in enumerate(webArray):
         paragraphs: str = web_scraper_p.scrape_data(i, link)
         writer.write_data(paragraphs, i, path_for_PROCESSED, presidents[i])
-    ###########################################################################################################
 
     file_names = str(os.path.dirname(__file__)) + path_for_PROCESSED + "_"
     RemoveEmptyLines(presidents, file_names)
     data = {"Biden": [], "Trump": [], "Obama": [], "W Bush": [], "Clinton": [], "Bush": []}
 
     data_length_list = {"Biden": 38, "Trump": 142, "Obama": 445, "W Bush": 283, "Clinton": 216, "Bush": 113}
-    #  data_length_list = {"Biden": 38, "Trump": 142, "Obama": 445, "W Bush": 283, "Clinton": 216, "Bush": 113}
 
     # Loop through one file at a time, taking the data from it and storing it in an array
     for pres in presidents:
@@ -61,36 +58,25 @@ def main():
 
     # Drop useless cols
     data_csv = data_csv.drop(columns=['Name', 'Disastes', 'Deaths', 'Begin Date'])
-    # print(data_csv)
 
     # Makes the dates into dateTime in the data_csv dataframe
     for i, j in enumerate(data_csv['End Date']):
         data_csv['End Date'].iloc[i] = (
                     str(data_csv['End Date'].iloc[i][:-4]) + '-' + str(data_csv['End Date'].iloc[i][-4:-2]))
-    # data_csv['End Date'] = pd.to_datetime(data_csv['End Date']).dt.to_period('M')
     data_csv['End Date'] = pd.to_datetime(data_csv['End Date'])
 
-    # data_csv['End Date'] = pd.Timestamp(data_csv['End Date'])+pd.DateOffset(months=1)
     data_csv['End Date'] = data_csv['End Date'] + pd.DateOffset(months=0)
     data_csv['End Date'] = pd.to_datetime(data_csv['End Date']).dt.to_period('M')
 
 
     data_csv['Total CPI-Adjusted Cost (Millions of Dollars)'] = data_csv['Total CPI-Adjusted Cost (Millions of Dollars)'].astype(float)
-    # data_csv = data_csv.groupby(['End Date']).sum()
-    # print(data_csv)
     data_csv = data_csv.groupby(['End Date'], as_index=False)['Total CPI-Adjusted Cost (Millions of Dollars)'].sum()
-    # data_csv['Total CPI-Adjusted Cost (Millions of Dollars)'] = data_csv['Total CPI-Adjusted Cost (Millions of Dollars)'].astype(str)
-    # print(data_csv)
 
     for pres in presidents:
         # Call the CombineData fucntion that formats the data and pres data then combines them on the shared field of date
         # Find the correlation value between the president's approval rating and the cost of severe wather data
         # Plot the data
         CombinedDate = CombineData(data, pres, data_csv)
-
-        # MCombinedData = CombinedDate.groupby(['End Date'])
-        # print(MCombinedData)
-# .agg("mean")
 
         p = CombinedDate['Total CPI-Adjusted Cost (Millions of Dollars)'].corr(CombinedDate['Approving'])
         print(f"{pres}: {p}")
@@ -99,11 +85,6 @@ def main():
 
     # plt.show()
 
-    #######################################################################################
-    # Next Steps:
-    #   1) Create Graphs with pres approval rating and another with cost
-    #   2) Create the website using Flask
-    #######################################################################################
 
 def plot_data(CombinedDate):
     CombinedDate['Approving'] = CombinedDate['Approving'].astype(int)
@@ -122,21 +103,8 @@ def CombineData(data, pres, data_csv):
     MonthArray = np.array(data[pres]["End Date"])
     ApprovalArray = np.array(data[pres]["Approving"])
     Stats = pd.DataFrame({'End Date': MonthArray.flatten(), 'Approving': ApprovalArray.flatten()})
-    # Stats = Stats.groupby(['End Date']).mean()
-    # Stats['End Date'] = pd.to_datetime(Stats['End Date'])
-    # se_date = use_date+relativedelta(months=+1)
-
-    #####################################################################################################
-    # # Stats['End Date'] = pd.Timestamp(Stats['End Date'])+pd.DateOffset(months=1)
-    # Stats['End Date'] = Stats['End Date'] + pd.DateOffset(months=1)
     Stats['End Date'] = pd.to_datetime(Stats['End Date']).dt.to_period('M')
 
-
-
-
-    #####################################################################################################
-
-    # print(Stats['End Date'])
     Stats['Approving'] = Stats['Approving'].astype(int)
     Stats = Stats.groupby(['End Date'], as_index=False)['Approving'].mean()
 
@@ -192,5 +160,4 @@ class WriteData:
 
 
 if __name__ == "__main__":
-    # app.run()
     main()
