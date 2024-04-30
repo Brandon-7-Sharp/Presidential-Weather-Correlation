@@ -13,28 +13,6 @@ import pandas as pd
 import datetime
 from dateutil.relativedelta import *
 
-
-
-
-# app = Flask(__name__)
-#
-# @app.route('/')
-# def home():
-#     # Displays the index.html code and sends in the books that the user provided (or the template if the user has not submitted a csv yet).
-#     return render_template('index.html')
-
-
-
-
-
-
-
-
-
-
-
-
-
 def main():
     # Can change the directories and presidents to what user wants
     path_for_PROCESSED = "/Data/ScrapedData"
@@ -53,9 +31,9 @@ def main():
     # Calls the write_data method, sending in the FileScraper object and the
     #   index to append to the end of the file name
     ###########################################################################################################
-    # for i, link in enumerate(webArray):
-    #     paragraphs: str = web_scraper_p.scrape_data(i, link)
-    #     writer.write_data(paragraphs, i, path_for_PROCESSED, presidents[i])
+    for i, link in enumerate(webArray):
+        paragraphs: str = web_scraper_p.scrape_data(i, link)
+        writer.write_data(paragraphs, i, path_for_PROCESSED, presidents[i])
     ###########################################################################################################
 
     file_names = str(os.path.dirname(__file__)) + path_for_PROCESSED + "_"
@@ -75,17 +53,7 @@ def main():
                     data[pres][i].append(new_line[:-1])
 
         frame = pd.DataFrame(data[pres][1:], columns=[data[pres][0]])
-        # print(frame)
-        # frame = frame.groupby(['End Date']).mean()
         data[pres] = frame
-        # print(data[pres])
-
-
-    # Insert Cost to Pres Data based on the Date var
-    # 1) Read the cost csv file and grab the end date and cost
-    # 2) Format the dates to the same as the pres data
-    # 3) Add the cost data to the pres data where the dates match
-    # print(data)
 
     fields = ['Name', 'Disastes', 'Begin Date', 'End Date', 'Total CPI-Adjusted Cost (Millions of Dollars)', 'Deaths']
     data_csv = pd.read_csv(str(os.getcwd()) + '/events-US-1980-2023.csv', sep=',', names=fields)
@@ -119,7 +87,6 @@ def main():
         # Find the correlation value between the president's approval rating and the cost of severe wather data
         # Plot the data
         CombinedDate = CombineData(data, pres, data_csv)
-        # print(CombinedDate)
 
         # MCombinedData = CombinedDate.groupby(['End Date'])
         # print(MCombinedData)
